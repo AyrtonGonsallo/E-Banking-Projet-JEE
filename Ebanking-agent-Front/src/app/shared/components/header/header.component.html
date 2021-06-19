@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span> E-Agency </span>
+    <div fxFlex fxLayout="row" fxLayoutAlign="center">
+      <button mat-button routerLink="/clients">
+        Clients
+      </button>
+      <button mat-button routerLink="/operators">
+        Operateurs
+      </button>
+    </div>
+    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+      <ul fxLayout="row" fxLayoutGap="20px">
+        <li>
+          <button mat-button (click)="logOut()">
+            Sign out
+          </button>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
