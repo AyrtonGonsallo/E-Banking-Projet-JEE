@@ -10,16 +10,16 @@ import { retry } from 'rxjs/operators';
 export class CurrencyService {
   private currencyUrl: string;
   constructor(private http: HttpClient) {
-    this.currencyUrl = 'http://localhost:8081/devise';
+    this.currencyUrl = 'http://localhost:8080/devise';
   }
-  public findAll(): Observable<Currency[]> {
+  public findAll(): Observable<any> {
     let username = 'admin';
     let password = 'admin';
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
 
-    return this.http.get<Currency[]>(this.currencyUrl + 's');
+    return this.http.get(this.currencyUrl + 's');
   }
   public findCurrency(code: string): Observable<Currency[]> {
     let username = 'admin';
@@ -36,7 +36,7 @@ export class CurrencyService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.post<Currency>(this.currencyUrl + 's', currency);
+    return this.http.post<Currency>(this.currencyUrl + 's/save', currency);
   }
   public delete(id: string): Observable<any> {
     let username = 'admin';
@@ -53,6 +53,6 @@ export class CurrencyService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.put(`${this.currencyUrl}/${id}`, currency);
+    return this.http.put(`${this.currencyUrl}s/update/${id}`, currency);
   }
 }

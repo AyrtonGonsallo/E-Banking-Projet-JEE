@@ -10,16 +10,16 @@ import { Agent } from 'src/app/agent/model/agent';
 export class AgencyService {
   private agencyUrl: string;
   constructor(private http: HttpClient) {
-    this.agencyUrl = 'http://localhost:8081/agence';
+    this.agencyUrl = 'http://localhost:8080/agence';
   }
-  public findAll(): Observable<Agency[]> {
+  public findAll(): Observable<any> {
     let username = 'admin';
     let password = 'admin';
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
 
-    return this.http.get<Agency[]>(this.agencyUrl + 's');
+    return this.http.get(this.agencyUrl + 's');
   }
 
   public save(agent: Agency) {
@@ -28,7 +28,7 @@ export class AgencyService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.post<Agency>(this.agencyUrl + 's', agent);
+    return this.http.post<Agency>(this.agencyUrl + 's/save', agent);
   }
   delete(id: string): Observable<any> {
     let username = 'admin';

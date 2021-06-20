@@ -10,7 +10,7 @@ export class AdminService {
   private adminUrl: string;
 
   constructor(private http: HttpClient) {
-    this.adminUrl = 'http://localhost:8081/admin';
+    this.adminUrl = 'http://localhost:8080/admin';
   }
   public findAll(): Observable<Admin[]> {
     let username = 'admin';
@@ -29,7 +29,7 @@ export class AdminService {
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
 
-    return this.http.post<Admin>(this.adminUrl + 's', agent);
+    return this.http.post<Admin>(this.adminUrl + 's/save', agent);
   }
   delete(id: number): Observable<any> {
     let username = 'admin';

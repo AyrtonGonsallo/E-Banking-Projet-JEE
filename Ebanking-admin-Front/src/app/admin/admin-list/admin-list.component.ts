@@ -14,7 +14,7 @@ import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/
 export class AdminListComponent implements OnInit {
   ADMINS: Admin[];
 
-  dataSource = new MatTableDataSource<Admin>(this.ADMINS);
+  dataSource = new MatTableDataSource<Admin>();
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

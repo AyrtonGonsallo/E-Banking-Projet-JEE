@@ -14,7 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CurrencyListComponent implements OnInit {
   CURRENCIES: Currency[];
-  dataSource = new MatTableDataSource<Currency>(this.CURRENCIES);
+  dataSource = new MatTableDataSource<Currency>();
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

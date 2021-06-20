@@ -15,7 +15,7 @@ import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/
 export class AgencyListComponent implements OnInit {
   AGENCIES: Agency[];
 
-  dataSource = new MatTableDataSource<Agency>(this.AGENCIES);
+  dataSource = new MatTableDataSource<Agency>();
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
