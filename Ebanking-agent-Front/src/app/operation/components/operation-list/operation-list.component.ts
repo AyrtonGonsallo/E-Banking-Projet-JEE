@@ -47,7 +47,7 @@ export class OperationListComponent implements OnInit {
     this.operationService.findOperations(this.codeId2).subscribe(
       (data) => {
         console.log(data);
-        this.OPERATIONS = data._embedded.operations;
+        this.OPERATIONS = data;
         this.dataSource = new MatTableDataSource<Operation>(this.OPERATIONS);
         this.dataSource.paginator = this.paginator;
       },

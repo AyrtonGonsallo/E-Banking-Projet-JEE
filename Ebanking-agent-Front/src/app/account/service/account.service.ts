@@ -16,7 +16,7 @@ export class AccountService {
   } */
   public findAll(code: string): Observable<any> {
     return this.http.get(
-      'http://localhost:8080/clients/' + code + '/comptes'
+      'http://localhost:8080/client/' + code + '/comptes'
     );
   }
   public findCodeDevise(code: string): Observable<any> {
@@ -29,10 +29,10 @@ export class AccountService {
   }
 
   public save(account: Account) {
-    return this.http.post<Account>(this.accountUrl + '/save', account);
+    return this.http.post<Account>(this.accountUrl , account);
   }
   delete(id: number): Observable<any> {
-    return this.http.delete(`${this.accountUrl}/del/${id}`);
+    return this.http.delete(`${this.accountUrl}/delete/${id}`);
   }
 
   getPDF(invoiceId: number): Observable<Blob> {

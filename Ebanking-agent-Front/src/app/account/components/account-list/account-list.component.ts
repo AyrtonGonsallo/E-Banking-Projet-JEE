@@ -49,7 +49,7 @@ export class AccountListComponent implements OnInit {
 
         this.accountService.findAll(this.codeId).subscribe(
           (data) => {
-            this.ACCOUNTS = data._embedded.comptes;
+            this.ACCOUNTS = data;
             this.dataSource = new MatTableDataSource<Account>(this.ACCOUNTS);
           },
           (error) => {
@@ -65,7 +65,7 @@ export class AccountListComponent implements OnInit {
     this.accountService.findAll(this.codeId).subscribe(
       (data) => {
         console.log(data);
-        this.ACCOUNTS = data._embedded.comptes;
+        this.ACCOUNTS = data;
         this.dataSource = new MatTableDataSource<Account>(this.ACCOUNTS);
         this.dataSource.paginator = this.paginator;
       },

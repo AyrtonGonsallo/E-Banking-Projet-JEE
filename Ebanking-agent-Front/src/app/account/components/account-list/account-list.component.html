@@ -38,7 +38,7 @@
 
     <ng-container matColumnDef="proprietaire">
       <th mat-header-cell *matHeaderCellDef>Proprietaire</th>
-      <td mat-cell *matCellDef="let element">{{ element.proprietaire }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.proprietaire.nom }} {{ element.proprietaire.prenom }}</td>
     </ng-container>
 
     <ng-container matColumnDef="numero">
@@ -49,7 +49,7 @@
     <ng-container matColumnDef="solde">
       <th mat-header-cell *matHeaderCellDef>Solde</th>
       <td mat-cell *matCellDef="let element">
-        {{ element.solde | number: "1.2-2" }} {{ element.devise }}
+        {{ element.solde | number: "1.2-2" }} {{ element.devise.code }}
       </td>
     </ng-container>
 

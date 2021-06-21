@@ -20,11 +20,14 @@ export class ClientService {
   public findClient(code: String): Observable<Client[]> {
     return this.http.get<Client[]>(this.clientUrl + '/' + code);
   }
+  public findClient2(code: String): Observable<Client> {
+    return this.http.get<Client>(this.clientUrl + '/' + code);
+  }
 
   public save(client: Client) {
     return this.http.post<Client>(this.clientUrl + '/save', client);
   }
   delete(id: number): Observable<any> {
-    return this.http.delete(`${this.clientUrl}/del/${id}`);
+    return this.http.delete(`${this.clientUrl}/delete/${id}`);
   }
 }

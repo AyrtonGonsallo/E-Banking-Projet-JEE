@@ -79,7 +79,7 @@ export class OperationFormComponent implements OnInit {
     this.currencyService.findAllCurrencies().subscribe(
       (data) => {
         console.log(data);
-        this.currencies = data._embedded.devises;
+        this.currencies = data;
       },
       (error) => {
         console.log(error);

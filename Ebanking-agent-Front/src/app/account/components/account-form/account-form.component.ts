@@ -42,10 +42,11 @@ export class AccountFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.codeId = this.route.snapshot.params['id'];
-    this.clientService.findClient(this.codeId).subscribe(
+    this.clientService.findClient2(this.codeId).subscribe(
       (data) => {
-        console.log(data);
-        this.client = data[0];
+        
+        this.client = data;
+        console.log(this.client);
       },
       (error) => {
         console.log(error);
@@ -54,7 +55,7 @@ export class AccountFormComponent implements OnInit {
     this.currencyService.findAllCurrencies().subscribe(
       (data) => {
         console.log(data);
-        this.currencies = data._embedded.devises;
+        this.currencies = data;
       },
       (error) => {
         console.log(error);
